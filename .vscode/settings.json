@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./deblurganv2",
+        "./nafnet",
+        "/Restormer"
+    ]
+}
