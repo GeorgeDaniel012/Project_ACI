@@ -15,7 +15,7 @@ if torch.cuda.is_available():
     print("GPU:", torch.cuda.get_device_name(0))
 
 if len(sys.argv) < 2:
-    image_path = r"images/images.png"
+    image_path = r"images/000144_19.png"
 else:
     image_path = sys.argv[1]
 image = cv2.imread(image_path)
@@ -45,21 +45,36 @@ from nafnet_adapter import NAFNetAdapter
 nafNetAdapter = NAFNetAdapter()
 restored_nn = nafNetAdapter.deblur(image_rgb)
 
+# setting current working directory to Restormer
+RESTORMER_ROOT = PROJECT_ROOT / "Restormer"
+sys.path.insert(0, str(RESTORMER_ROOT))
+os.chdir(RESTORMER_ROOT)
+
+from restormer_adapter import RestormerAdapter
+
+restormerAdapter = RestormerAdapter()
+restored_rs = restormerAdapter.deblur(image_rgb)
+
 plt.figure(figsize = (12, 5))
 
-plt.subplot(1, 3, 1)
+plt.subplot(1, 4, 1)
 plt.imshow(image_rgb)
 plt.title("Blurred Image")
 plt.axis("off")
 
-plt.subplot(1, 3, 2)
+plt.subplot(1, 4, 2)
 plt.imshow(restored_dgan)
 plt.title("Restored Image (DeblurGANv2)")
 plt.axis("off")
 
-plt.subplot(1, 3, 3)
+plt.subplot(1, 4, 3)
 plt.imshow(restored_nn)
 plt.title("Restored Image (NAFNet)")
+plt.axis("off")
+
+plt.subplot(1, 4, 4)
+plt.imshow(restored_rs)
+plt.title("Restored Image (Restormer)")
 plt.axis("off")
 
 plt.show()

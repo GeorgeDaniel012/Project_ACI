@@ -16,6 +16,9 @@ Download `fpn_inception.h5` from [this link](https://drive.google.com/uc?id=1UXc
 ### NAFNet Setup
 Download `NAFNet-GoPro-width64.pth` from [here](https://drive.google.com/file/d/1S0PVRbyTakYY9a82kujgZLbMihfNBLfC), and place it inside `nafnet/experiments/pretrained_models/`.
 
+### Restormer Setup
+Get `motion_deblurring.pth` from [this link](https://drive.google.com/file/d/1pwcOhDS5Erzk8yfAbu7pXTud606SB4-L), and put it in `Restormer/Motion_Deblurring/pretrained_models/`.
+
 # Run instructions (Milestone 1)
 Run the `demo.py` script in the CLI, like so:
 ```
@@ -25,4 +28,7 @@ python .\demo.py [image_path]
 Note that the `image_path` argument is optional. If it's not provided, the application will use a default image instead.
 
 # Disclaimers
-The pretrained models recommended for use have been trained on the GoPro dataset. However, they can be replaced by other models.
+The models recommended for use have been pretrained on the GoPro dataset. However, they can be replaced by other models.
+
+### GoPro dataset
+You can get the dataset from [here](https://drive.google.com/file/d/1KStHiZn5TNm2mo3OLZLjnRvd0vVFCI0W).
