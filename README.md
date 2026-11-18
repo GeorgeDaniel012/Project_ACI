@@ -22,10 +22,14 @@ Get `motion_deblurring.pth` from [this link](https://drive.google.com/file/d/1pw
 # Run instructions (Milestone 1)
 Run the `demo.py` script in the CLI, like so:
 ```
-python .\demo.py [image_path]
+python .\demo.py [image_path] [-g | -m] [alteration_param] [length]
 ```
 
 Note that the `image_path` argument is optional. If it's not provided, the application will use a default image instead.
+
+Note that the `-g | -m` represents the type of blur used and is an optional argument.
+
+Note that the `alteration_param` is optional. It represents either the number of kernels used or the angle of motion. `length` is the argument used for the motion length.
 
 # Disclaimers
 The models recommended for use have been pretrained on the GoPro dataset. However, they can be replaced by other models.
